@@ -1,0 +1,53 @@
+.discount{
+    /* margin: auto; */
+    /* width: 80%; */
+    /* height: 150px; */
+    /* background-color:#f6f6f6 */
+}
+.discount>img{
+    width: 95vw;
+    /* height: 50vh; */
+}
+.topCrousel{
+    margin: auto;
+    width: 95vw;
+}
+.SecCrousel{
+    margin: auto;
+    width: 95vw;
+    margin-top:40px
+}
+.category{
+    display: flex;
+    width: 95vw;
+    margin:auto;
+}
+
+.category>div>img{
+    width:16vw;
+}
+.GearPoster>img{
+    width:95vw;
+    height:60vh;
+
+}
+.openEdit{
+    margin: auto;
+    margin-top: 10vh;
+    display: flex;
+    width: 95vw;
+    justify-content:content
+}
+.openEdit>div{
+    /* width:50% */
+    text-align: left;
+}
+
+.openEdit>div>img{
+    width:100%
+}
+.freeStyle>img{
+    width: 95vw;
+    height: 40vh;
+}
+
