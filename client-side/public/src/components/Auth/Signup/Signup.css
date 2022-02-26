@@ -1,0 +1,43 @@
+.signInDiv {
+  width: 350px;
+  margin: auto;
+}
+.signInForm > div {
+  display: flex;
+  flex-direction: column;
+}
+.signInForm > div > input,
+button {
+  padding: 10px;
+  margin-top: 10px;
+  outline: none;
+}
+.signInForm > div > p {
+  font-size: 13px;
+}
+.signInDiv > p {
+  font-size: 13px;
+  display: flex;
+}
+.signInDiv > p span {
+  margin-left: 5px;
+}
+.signInDiv > h3 {
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: #393939;
+}
+.signInForm label {
+  font-size: 12px;
+  font-weight: 550;
+}
+.signInForm button {
+  padding: 12px;
+  background-color: black;
+  color: white;
+  border: none;
+  outline: none;
+}
+.labeltag {
+  margin-top: 20px;
+}
