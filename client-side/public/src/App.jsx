@@ -8,24 +8,22 @@ import { Checkout } from "./components/Checkoutandpayment/Checkout";
 import { SignIn } from "./components/Auth/SIgnIn/SignIn";
 import { Signup } from "./components/Auth/Signup/Signup";
 import { Bag } from "./components/ShoppingBag/Bag";
-import { Payment } from "./components/Checkoutandpayment/Payment";
 
 function App() {
   return (
-    <>
-      {/* <Navbar />
+    // <>
+    //   {/* <Navbar />
     // <LandingPage />
     //   <Footer/> */}
-      {/* <Products /> */}
-      {/* <Checkout/> */}
-      <Payment/>
-    </>
+    //   {/* <Products /> */}
+    //   <Checkout/>
+    // </>
 
-    // <Routes>
-    //   <Route exact path="/signin" element={<SignIn />}></Route>
-    //   <Route path="/register" element={<Signup />}></Route>
-    //   <Route path="/bag" element={<Bag />}></Route>
-    // </Routes>
+    <Routes>
+      <Route exact path="/signin" element={<SignIn />}></Route>
+      <Route path="/register" element={<Signup />}></Route>
+      <Route path="/bag" element={<Bag />}></Route>
+    </Routes>
   );
 }
 

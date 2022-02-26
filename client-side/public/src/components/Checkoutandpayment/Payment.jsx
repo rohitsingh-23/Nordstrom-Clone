@@ -1,86 +1,109 @@
 import "./Checkout.css";
 // import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
-// import axios from "axios";
+import axios from "axios";
 import * as React from "react";
 import { OutlinedInput } from "@mui/material";
 import { InputLabel } from "@mui/material";
 
 import { FormControl } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 
-// import { useSelector, useDispatch } from 'react-redux';
-// import { getUserError, getUserLoading, getUserSuccess } from '../../Features/Login/actions';
-import { Navbar } from "../navbar/Navbar";
-import { Footer } from "../footer/Footer";
-
+import emailjs from '@emailjs/browser';
+import { useSelector, useDispatch } from 'react-redux';
+import { getUserError, getUserLoading, getUserSuccess } from '../../Features/Login/actions';
+import { Header } from "../Home/Header";
+import { Footer } from "../Home/Footer";
 export const Payment = () => {
 
-  // const form = useRef();
+  const form = useRef();
 
-  // const [mailDet, setMailDet] = useState({
-  //   first_name: "",
-  //   email: "",
-  //   otp: "",
-  // });
+  const [mailDet, setMailDet] = useState({
+    first_name: "",
+    email: "",
+    otp: "",
+  });
 
-  // useEffect(() => { 
-  //   getUserData();
-  // }, []);
+  useEffect(() => { 
+    getUserData();
+  }, []);
 
-  // const { userData } = useSelector((state) => ({
-  //   userData: state.loginState.userData,
-  // }));
+  const { userData } = useSelector((state) => ({
+    userData: state.loginState.userData,
+  }));
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // function getUserData() {
-  //     dispatch(getUserLoading());
-  //     fetch("http://localhost:4500/login")
-  //     .then((d) => d.json())
-  //     .then((res) => {
-  //         dispatch(getUserSuccess(res));
-  //         setMailDet({
-  //           first_name: res[res.length - 1].first_name,
-  //           email: res[res.length - 1].email,
-  //           otp: res[res.length - 1].otp,
-  //         });
-  //     })
-  //     .catch((err) => {
-  //         dispatch(getUserError());
-  //     })
-  // };
+  function getUserData() {
+      dispatch(getUserLoading());
+      fetch("http://localhost:4500/login")
+      .then((d) => d.json())
+      .then((res) => {
+          dispatch(getUserSuccess(res));
+          setMailDet({
+            first_name: res[res.length - 1].first_name,
+            email: res[res.length - 1].email,
+            otp: res[res.length - 1].otp,
+          });
+      })
+      .catch((err) => {
+          dispatch(getUserError());
+      })
+  };
 
-  // let emailData = {
-  //   to_name: mailDet.first_name,
-  //   to_email: mailDet.email,
-  //   otp: mailDet.otp,
-  // }
-
-  // const sendEmail = () => {
-  //   emailjs.send('service_e26pfww', 'template_g6k0bz8', emailData, 'user_yi6j031DkWe1zzrpAAMGh')
-  //     .then((result) => {
-  //         console.log(result.text);
-  //     }, (error) => {
-  //         console.log(error.text);
-  //     });
-  // };
-
-  const doneHandle = () => {
-    console.log("done")
+  let emailData = {
+    to_name: mailDet.first_name,
+    to_email: mailDet.email,
+    otp: mailDet.otp,
   }
 
+  const sendEmail = () => {
+    emailjs.send('service_e26pfww', 'template_g6k0bz8', emailData, 'user_yi6j031DkWe1zzrpAAMGh')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
 
 
-  // const navigate = useNavigate();
+
+  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
+  var [pricetotal, setPrice] = useState(0);
   var [finaltotal, setFinal] = useState(0);
-  // useEffect(() => {
-  //   getData();
-  // }, []);
+  useEffect(() => {
+    getData();
+  }, []);
 
+  const getData = () => {
+    fetch("http://localhost:4500/cart ")
+      .then((response) => response.json())
+      .then((data) => {
+        setProducts(data);
+        let totalprice = 0;
+        data.map((e) => (totalprice = e.price + totalprice));
+        setPrice(totalprice);
+        setFinal(2000 + 2000 + totalprice);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const [data, setData] = useState({
+    email: "",
+    firstname: "",
+    lastname: "",
+    address: "",
+    postalcode: "",
+    city: "",
+    phone: "",
+    country: "",
+  });
   const [total, setTotal] = useState(9000);
 
   const [promonum, setPromonum] = useState("");
@@ -90,39 +113,68 @@ export const Payment = () => {
   };
 
   const handlepromoClick = () => {
-  console.log("handleclick")
+    if (promonum == "MASAI") {
+      let d = pricetotal - 500;
+      let k = finaltotal - 500;
+      setPrice(d);
+      setFinal(k);
+    }
   };
 
+  function handleChange(event) {
+    console.log(event.target.value);
+    const { name, value } = event.target;
+    const handlepromo = () => {};
 
-  const handleInputData = (e) => {
+    setData((prevData) => {
+      return {
+        ...prevData,
+        [name]: value,
+      };
+    });
+    console.log(data, "bnedfjdk");
+  }
+  const handleClick = (e) => {
     e.preventDefault();
-    console.log("handledata")
+    const newNote = {
+      email: data.email,
+      firstname: data.firstname,
+      lastname: data.lastname,
+      address: data.address,
+      postalcode: data.postalcode,
+      city: data.city,
+      phone: data.phone,
+      country: data.country,
+    };
+    axios.post("http://localhost:4500/create", newNote);
+    fetchItems();
   };
 
   const [style, setStyle] = useState("exper1");
-  const [promo, setPromo] = useState("promoMin");
+  const [promo, setPromo] = useState("promoff");
   const [checked, setChecked] = useState(true);
   const [productno, setProduct] = useState([]);
-  // const [address, setAddress] = useState({});
-  // useEffect(() => {
-  //   fetchItems();
-  // }, []);
+  const [address, setAddress] = useState({});
+  useEffect(() => {
+    fetchItems();
+  }, []);
 
   const fetchItems = () => {
-    // axios.get("http://localhost:4500/tweets").then((res) => {
-    //   let addresss = res.data[res.data.length - 1];
-    //   setAddress(addresss);
-    // });
+    axios.get("http://localhost:4500/tweets").then((res) => {
+      let addresss = res.data[res.data.length - 1];
+      setAddress(addresss);
+    });
   };
+  console.log(address, "ddddddddddd");
 
   const [checkedq, setCheckedq] = useState(true);
   const [radio, setRadio] = useState(true);
 
   const handlePromo = () => {
-    if (promo == "promoMin") {
-      setPromo("promoMax");
+    if (promo == "promoff") {
+      setPromo("promon");
     } else {
-      setPromo("promoMin");
+      setPromo("promoff");
     }
   };
   const changeStyle = () => {
@@ -138,7 +190,7 @@ export const Payment = () => {
   };
   return (
     <div>
-      <Navbar/>
+      <Header/>
       <div id="mainbox">
         <div id="box1">
           <div>
@@ -244,16 +296,16 @@ export const Payment = () => {
                 <div id="newtitle">Delivery</div>
               </div>
 
-              <div id="delAddress">
+              <div id="deladrs">
                 <div>
                   <h4>DELIVERY ADDRESS:</h4>
                   <div id="addressinfo" className="delAddDet">
-                    {/* {address.address} <br /> {address.city} {address.postal_code}{" "}
-                    <br /> {address.country} */}
+                    {address.address} <br /> {address.city} {address.postalcode}{" "}
+                    <br /> {address.country}
                   </div>
                 </div>
 
-                <div id="delMethod">
+                <div id="delmtd">
                   <h4>DELIVERY METHOD:</h4>
                   <p className="delAddDet">
                     Standard <br />
@@ -296,7 +348,7 @@ export const Payment = () => {
                         Email
                       </InputLabel>
                       <OutlinedInput
-                       // onChange={handleChange}
+                        onChange={handleChange}
                         name="email"
                         sx={{ fontSize: "12px" }}
                       />
@@ -313,7 +365,7 @@ export const Payment = () => {
                           mb: "10px",
                           width: "45%",
                         }}
-                        id="first_name"
+                        id="firstname"
                       >
                         <InputLabel
                           htmlFor="outlined-adornment-password"
@@ -322,8 +374,8 @@ export const Payment = () => {
                           First Name
                         </InputLabel>
                         <OutlinedInput
-                         // onChange={handleChange}
-                          name="first_name"
+                          onChange={handleChange}
+                          name="firstname"
                           label="First Name"
                           sx={{ fontSize: "12px" }}
                         />
@@ -338,7 +390,7 @@ export const Payment = () => {
                           mb: "10px",
                           width: "45%",
                         }}
-                        id="last_name"
+                        id="lastname"
                       >
                         <InputLabel
                           htmlFor="outlined-adornment-password"
@@ -347,8 +399,8 @@ export const Payment = () => {
                           Last Name
                         </InputLabel>
                         <OutlinedInput
-                         // onChange={handleChange}
-                          name="last_name"
+                          onChange={handleChange}
+                          name="lastname"
                           label="Last Name"
                           sx={{ fontSize: "12px" }}
                         />
@@ -370,7 +422,7 @@ export const Payment = () => {
                         Address
                       </InputLabel>
                       <OutlinedInput
-                       // onChange={handleChange}
+                        onChange={handleChange}
                         name="address"
                         label="Address"
                         sx={{ fontSize: "12px" }}
@@ -388,7 +440,7 @@ export const Payment = () => {
                           mb: "10px",
                           width: "45%",
                         }}
-                        id="first_name"
+                        id="firstname"
                       >
                         <InputLabel
                           htmlFor="outlined-adornment-password"
@@ -411,7 +463,7 @@ export const Payment = () => {
                           mb: "10px",
                           width: "45%",
                         }}
-                        id="last_name"
+                        id="lastname"
                       >
                         <InputLabel
                           htmlFor="outlined-adornment-password"
@@ -420,8 +472,8 @@ export const Payment = () => {
                           Postal Code
                         </InputLabel>
                         <OutlinedInput
-                         // onChange={handleChange}
-                          name="postal_code"
+                          onChange={handleChange}
+                          name="postalcode"
                           label="Postal Code"
                           sx={{ fontSize: "12px" }}
                         />
@@ -447,7 +499,7 @@ export const Payment = () => {
                           City
                         </InputLabel>
                         <OutlinedInput
-                         // onChange={handleChange}
+                          onChange={handleChange}
                           name="city"
                           label="City"
                           sx={{ fontSize: "12px" }}
@@ -463,7 +515,7 @@ export const Payment = () => {
                           mb: "10px",
                           width: "45%",
                         }}
-                        id="last_name"
+                        id="lastname"
                       >
                         <InputLabel
                           htmlFor="outlined-adornment-password"
@@ -497,7 +549,7 @@ export const Payment = () => {
                           Phone
                         </InputLabel>
                         <OutlinedInput
-                         // onChange={handleChange}
+                          onChange={handleChange}
                           name="phone"
                           label="Phone"
                           sx={{ fontSize: "12px" }}
@@ -505,7 +557,7 @@ export const Payment = () => {
                       </FormControl>
 
                       <select
-                       // onChange={handleChange}
+                        onChange={handleChange}
                         className="inputstyle1"
                         id="country"
                         name="country"
@@ -814,14 +866,14 @@ export const Payment = () => {
                       </select>
                     </div>
 
-                    <a href="/payment" style={{ margin: "10px" }}>
+                    <Link to="/payment" style={{ margin: "10px" }}>
                       <input
-                        onClick={handleInputData}
-                        id="submitBtn"
+                        onClick={handleClick}
+                        id="submitbtn"
                         type="submit"
                         value="Update"
                       />
-                    </a>
+                    </Link>
                   </form>
                 </div>
                 
@@ -833,7 +885,7 @@ export const Payment = () => {
                     value="HTML"
                     checked={radio}
                   />
-                  <label for="html" className="creditFlex" >
+                  <label for="html">
                     Credit or Debit Card{" "}
                     <img
                       id="visa"
@@ -883,11 +935,11 @@ export const Payment = () => {
               </div>
             </div>
             <div>
-              <a href="/OTP" style={{ margin: "10px" }}>
-                <button id="submitBtn"  Click Here>
+              <Link to="/OTP" style={{ margin: "10px" }}>
+                <button id="submitbtn" onClick={sendEmail} Click Here>
                   Place Order
                 </button>
-              </a>
+              </Link>
             </div>
             <div className="lastVal">
               This order total is 100% guaranteed. There will be no additional
@@ -898,33 +950,33 @@ export const Payment = () => {
 
         <div id="box2">
           <div>
-            <div id="rightPromoBox">
+            <div id="infod">
             
               <div className="box1">
-                <ShoppingCartOutlinedIcon sx={{fontSize: '50px', paddingLeft: '18px'}} /> 
+                <ShoppingCartOutlinedIcon sx={{fontSize: '26px', paddingLeft: '20px'}} /> 
                 <div className="box1Div1">
                 Your Order
                 </div>
               </div>
 
-              <a href="/payment" style={{ margin: "10px" }}>
-                <button onClick={handleInputData} id="submitBtn1">
+              <Link to="/payment" style={{ margin: "10px" }}>
+                <button onClick={handleClick} id="submitbtn1">
                   Place Order
                 </button>{" "}
-              </a>
+              </Link>
 
-              <div className="priceSummary">
-                <div className="leftSummaryBox">
+              <div className="summaryDet">
+                <div className="summaryDetLeft">
                   <div>Items</div>
                   <div>Shipping</div>
                   <div>Duties</div>
                   <div>TOTAL</div>
                 </div>
-                <div className="rightSummaryBox">
-                  <div>₹totalprice</div>
-                  <div>₹2000</div>
-                  <div>₹2000</div>
-                  <div>₹45000</div>
+                <div className="summaryDetRight">
+                  <div>₹{pricetotal}</div>
+                  <div>₹{2000}</div>
+                  <div>₹{2000}</div>
+                  <div>₹{finaltotal}</div>
                 </div>
               </div>
 
@@ -946,7 +998,7 @@ export const Payment = () => {
               <hr />
             </div>
             <div>
-              {/* {products.map((e) => (
+              {products.map((e) => (
                 <div className="prodinfo">
                   <img src={e.images[0]} alt="" className="prodimg" />
                   <div className="proddess">
@@ -955,7 +1007,7 @@ export const Payment = () => {
                     <p className="prodtext2">₹{e.price}</p>
                   </div>
                 </div>
-              ))} */}
+              ))}
             </div>
           </div>
         </div>
