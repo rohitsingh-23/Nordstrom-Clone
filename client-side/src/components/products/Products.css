@@ -1,0 +1,120 @@
+.container
+{
+    color: #393939;
+    padding: 0 20px;
+}
+.path
+{
+    color:#393939;
+    font-size:13px;
+    line-height:18.2px;
+    vertical-align:baseline;
+    font-weight:400;
+}
+.main-wrapper
+{
+    margin-top: 20px;
+    display: flex;
+}
+.side-bar{
+    height: 100px;
+    width: 15%;
+}
+.right-section{
+    width: 80%;
+    margin: auto;
+}
+.gray-container
+{
+    height: 350px;
+    background-image: url("https://user-images.githubusercontent.com/90475607/155801268-f4aaecf0-7388-4002-9416-fb2002d4bf27.jpeg");
+    background-size: cover;
+}
+.gray-container > div{
+    padding-top: 60px;
+    padding-left: 40px;
+}
+.gray-container .tag1
+{
+    font-size: 26px;
+}
+.gray-container a{
+    padding: 0px;
+    color:black;
+    text-decoration: underline;
+}
+.nav-links
+{
+    margin-top: 50px;
+    border-bottom: 1px solid rgb(216, 216, 216);
+}
+.nav-links > p{
+    font-size: 24px;
+    font-weight: bold;
+}
+.nav-links > div{
+    display: flex;
+    width: 100%;
+    font-size: 18px;
+    justify-content: space-between;
+}
+.nav-links .selected
+{
+    font-weight: bold;
+    padding-bottom: 5px;
+    border-bottom: 3px solid black;
+}
+
+.nav-links > div > div:hover
+{
+    font-weight: bold;
+    padding-bottom: 5px;
+    cursor: pointer;
+    border-bottom: 3px solid black;
+}
+.sort-bar
+{
+    margin: 15px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+.sort-bar select{
+    height: 40px;
+    width: 250px;
+    border: 2px solid black;
+    color: #393939;
+}
+.cards-container
+{
+    display: grid;
+    row-gap: 50px;
+    grid-template-columns: repeat(4, 24%);
+    justify-content: space-between;
+}
+.card  img
+{
+    width: 100%;
+}
+.card .brand
+{
+    font-weight: bold;
+}
+.withoutDiscount
+{
+    font-weight: 600;
+}
+.sale-amount
+{
+    margin-bottom: -10px;
+    color: #DC4047;
+    font-weight: bold;
+}
+.star-flex{
+    display: flex;
+}
+.img2{
+    display: none;
+}
+.img1:hover .img2{
+    display: contents;
+}
