@@ -92,37 +92,46 @@ function Products() {
                     var img = el.images[0];
                     var img2 = el.images[1];
                     return (
-                        <div className='card' >
-                            <div>
-                            <img className='img1' src={img} />
-                            <img className='img2' src={img2} />
-                                </div>
-                            <p className='brand'>{el.brand}</p>
-                            <p className='title'>{el.title}</p>
-                            
-                            {el.discount == 0 ? <p className='withoutDiscount'>INR {el.price.toFixed(2)}</p>:
-                            <div>
-                                <p className='sale-amount'>Now: INR {el.price-((el.discount*el.price)/100).toFixed(2)}</p>
-                                <p className='wasAmount'>Was: INR {el.price.toFixed(2)} &nbsp; {el.discount}% off</p>
-                            </div>
-                            }
-                            {/* {
+                      <div className="card">
+                        <div className="proImg">
+                          <img className="img1" src={img} />
+                          <img className="img2" src={img2} />
+                        </div>
+                        <p className="brand">{el.brand}</p>
+                        <p className="title">{el.title}</p>
+                        {el.discount == 0 ? (
+                          <p className="withoutDiscount">
+                            INR {el.price.toFixed(2)}
+                          </p>
+                        ) : (
+                          <div>
+                            <p className="sale-amount">
+                              Now: INR{" "}
+                              {el.price -
+                                ((el.discount * el.price) / 100).toFixed(2)}
+                            </p>
+                            <p className="wasAmount">
+                              Was: INR {el.price.toFixed(2)} &nbsp;{" "}
+                              {el.discount}% off
+                            </p>
+                          </div>
+                        )}
+                        {/* {
                                 arr.map(el=>{
                                     return <Icon icon="emojione-monotone:star" />
                                 })
                             } */}
-                            <div className='star-flex'>
-                            <Icon icon="carbon:star-filled" />
-                            <Icon icon="carbon:star-filled" />
-                            <Icon icon="carbon:star-filled" />
-                            <Icon icon="carbon:star-filled" />
-                            <Icon icon="carbon:star-filled" />
-                            </div>
-                            {/* {Math.floor(Math.random())%3 == 0 ? <Icon icon="emojione-monotone:star" /> : <Icon icon="fluent:star-half-16-filled" />}
-                             {/* &nbsp; ({ Math.floor(Math.random() * (100 - 1) + 1)}) */}
-                            {/* ({(Math.random() * (100 - 1) + 1)}) */}
-                            </div>
-                    )
+                        <div className="star-flex">
+                          <Icon icon="carbon:star-filled" />
+                          <Icon icon="carbon:star-filled" />
+                          <Icon icon="carbon:star-filled" />
+                          <Icon icon="carbon:star-filled" />
+                          <Icon icon="carbon:star-filled" />
+                        </div>
+                        {/* {Math.floor(Math.random())%3 == 0 ? <Icon icon="emojione-monotone:star" /> : <Icon icon="fluent:star-half-16-filled" />} */}
+                        {/* &nbsp; ({Math.floor(Math.random() * (100 - 1) + 1)}) */}
+                      </div>
+                    );
                 })}
             </div>
         </div>
