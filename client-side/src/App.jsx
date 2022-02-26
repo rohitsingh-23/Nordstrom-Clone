@@ -18,14 +18,14 @@ function App() {
     //   <Footer/> */}
       {/* <Products /> */}
       {/* <Checkout/> */}
-      <Payment/>
-    </>
+      {/* <Payment/> */}
 
-    // <Routes>
-    //   <Route exact path="/signin" element={<SignIn />}></Route>
-    //   <Route path="/register" element={<Signup />}></Route>
-    //   <Route path="/bag" element={<Bag />}></Route>
-    // </Routes>
+      <Routes>
+        <Route exact path="/signin" element={<SignIn />}></Route>
+        <Route path="/signup" element={<Signup />}></Route>
+        <Route path="/bag" element={<Bag />}></Route>
+      </Routes>
+    </>
   );
 }
 

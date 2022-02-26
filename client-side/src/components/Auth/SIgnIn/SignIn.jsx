@@ -5,6 +5,8 @@ import "./SignIn.css";
 import { FcGoogle } from "react-icons/fc";
 import { Navbar } from "../../navbar/Navbar";
 import { Footer } from "../../footer/Footer";
+import { useSelector, useDispatch } from "react-redux";
+import { userData } from "../../../redux/action";
 
 export const SignIn = () => {
   const [check, setCheck] = useState("");
@@ -14,6 +16,8 @@ export const SignIn = () => {
   });
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,6 +32,7 @@ export const SignIn = () => {
       .post("http://localhost:4500/users/login", user)
       .then((res) => {
         console.log(res.data);
+        dispatch(userData(res.data));
       })
       .catch((err) => {
         console.log(err);

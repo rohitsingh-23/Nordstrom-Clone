@@ -34,23 +34,6 @@ export const MidHead = () => {
 
           <SignInPopOver />
 
-          {/* <div
-            style={{
-              width: "20%",
-            }}
-            id="signInPopup"
-          >
-            <a
-              style={{
-                color: "black",
-                textDecoration: "none",
-              }}
-              href=""
-            >
-              Sign In
-            </a>
-          </div> */}
-
           <div className="cartIconBox">
             <p id="cartIndicator">0</p>
             <a className="cartIcon" href="#">
