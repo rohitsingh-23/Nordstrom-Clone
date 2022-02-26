@@ -3,6 +3,7 @@ const app = express();
 app.use(express.static("public"));
 
 const Product = require("./models/Products.model");
+const Checkout = require("./models/Checkout.model")
 app.use(express.json());
 // const userController = require("./controller/user.controller");
 // const Product = require("./model/products.model");
@@ -27,6 +28,18 @@ app.get("/data", async (req, res) => {
         const createUser=await users.save()  
         
         res.status(201).send(createUser)
+      
+    }catch(e){
+        res.status(400).send(e)
+    }
+  })
+
+  app.post("/checkout", async (req,res)=>{
+    try{
+        const checkout=new Checkout(req.body)
+        const checkoutData=await checkout.save()  
+        
+        res.status(201).send(checkoutData)
       
     }catch(e){
         res.status(400).send(e)
