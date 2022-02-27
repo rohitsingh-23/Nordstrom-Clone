@@ -2,6 +2,8 @@ import * as React from "react";
 import { Popover } from "@mui/material";
 import { Button } from "@mui/material";
 import "../Navbar.css";
+import {Link} from "react-router-dom"
+
 
 export const MenNav = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -71,9 +73,9 @@ export const MenNav = () => {
               <a href="#" className="categories">
                 Dress shirts
               </a>
-              <a href="#" className="categories">
+              <Link to="./products" className="categories">
                 Jeans
-              </a>
+              </Link>
               <a href="#" className="categories">
                 Joggers and sweatpants
               </a>

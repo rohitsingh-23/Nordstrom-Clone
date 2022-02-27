@@ -48,6 +48,15 @@ app.post("/data", async (req, res) => {
   }
 });
 
+app.get("/product/:id", async(req, res) => {
+  try {
+    const item = await Product.find({ _id: req.params.id }).lean().exec();
+  return res.json({ res: item });
+  } catch (err) {
+    return res.status(400).json(err.message);
+  }
+});
+
 //users login gOuth
 passport.serializeUser(function (user, callback) {
   callback(null, user);

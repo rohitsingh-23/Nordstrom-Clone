@@ -9,23 +9,29 @@ import { SignIn } from "./components/Auth/SIgnIn/SignIn";
 import { Signup } from "./components/Auth/Signup/Signup";
 import { Bag } from "./components/ShoppingBag/Bag";
 import { Payment } from "./components/Checkoutandpayment/Payment";
+import ProductDescription from "./components/Products Description/ProductDescription";
 
 function App() {
   return (
     <>
       {/* <Navbar />
-    // <LandingPage />
     //   <Footer/> */}
-      {/* <Products /> */}
+      <Routes>
+        <Route path="/" element={<LandingPage />}></Route>
+        <Route path="/products" element={<Products />}></Route>
+        <Route path="/productDetails/:id" element={<ProductDescription />}></Route>
+        <Route path="login" element={<SignIn/>}></Route>
+        <Route path="signup" element={<Signup/>}></Route>
+      </Routes>
       {/* <Checkout/> */}
       {/* <Payment/> */}
-
-      <Routes>
-        <Route exact path="/signin" element={<SignIn />}></Route>
-        <Route path="/signup" element={<Signup />}></Route>
-        <Route path="/bag" element={<Bag />}></Route>
-      </Routes>
     </>
+
+    // <Routes>
+    //   <Route exact path="/signin" element={<SignIn />}></Route>
+    //   <Route path="/register" element={<Signup />}></Route>
+    //   <Route path="/bag" element={<Bag />}></Route>
+    // </Routes>
   );
 }
 

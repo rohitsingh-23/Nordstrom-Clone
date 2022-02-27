@@ -33,6 +33,7 @@ export const SignIn = () => {
       .then((res) => {
         console.log(res.data);
         dispatch(userData(res.data));
+        navigate(`/`)
       })
       .catch((err) => {
         console.log(err);
