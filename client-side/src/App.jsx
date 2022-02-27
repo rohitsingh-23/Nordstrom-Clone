@@ -9,6 +9,7 @@ import { SignIn } from "./components/Auth/SIgnIn/SignIn";
 import { Signup } from "./components/Auth/Signup/Signup";
 import { Bag } from "./components/ShoppingBag/Bag";
 import { Payment } from "./components/Checkoutandpayment/Payment";
+// import { ProductDetail } from "./components/productDetails/ProductDetail";
 
 function App() {
   return (
@@ -16,16 +17,19 @@ function App() {
       {/* <Navbar />
     // <LandingPage />
     //   <Footer/> */}
-      {/* <Products /> */}
+      <Routes>
+        <Route path="/" element={<Products />}></Route>
+        {/* <Route path="/productDetails" element={<ProductDetail/>}></Route> */}
+      </Routes>
       {/* <Checkout/> */}
       {/* <Payment/> */}
-
-      <Routes>
-        <Route exact path="/signin" element={<SignIn />}></Route>
-        <Route path="/signup" element={<Signup />}></Route>
-        <Route path="/bag" element={<Bag />}></Route>
-      </Routes>
     </>
+
+    // <Routes>
+    //   <Route exact path="/signin" element={<SignIn />}></Route>
+    //   <Route path="/register" element={<Signup />}></Route>
+    //   <Route path="/bag" element={<Bag />}></Route>
+    // </Routes>
   );
 }
 
