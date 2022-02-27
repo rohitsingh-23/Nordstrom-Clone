@@ -1,5 +1,5 @@
 import "./Checkout.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
@@ -13,12 +13,11 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { Navbar } from "../navbar/Navbar";
 import { Footer } from "../footer/Footer";
 
-
 export const Checkout = () => {
-
+  const navigate = useNavigate();
   //promo input minimize maximize
-  const [promo, setPromo] = useState("promoMin")
-//form data
+  const [promo, setPromo] = useState("promoMin");
+  //form data
   const [formData, setFormData] = useState({
     email: "",
     first_name: "",
@@ -28,21 +27,21 @@ export const Checkout = () => {
     city: "",
     phone: "",
     country: "",
-  })
+  });
 
   const handleChange = (event) => {
-    console.log(event.target.value)
+    console.log(event.target.value);
     const { name, value } = event.target;
 
     setFormData((data) => {
       return {
         ...data,
-          [name]: value,
-      }
-    })
-      // console.log("formData",formData)
-  }
-  
+        [name]: value,
+      };
+    });
+    // console.log("formData",formData)
+  };
+
   //handle input data onclick
   const handleInputData = (e) => {
     e.preventDefault();
@@ -58,34 +57,33 @@ export const Checkout = () => {
     };
     axios.post("http://localhost:4500/checkout", newData);
     //navigating
-    console.log("newData",newData)
-  }
+    console.log("newData", newData);
+  };
 
   const handlePromo = () => {
     if (promo == "promoMin") {
-      setPromo("promoMax")
+      setPromo("promoMax");
     } else {
-      setPromo("promoMin")    
+      setPromo("promoMin");
     }
-  }
-  
+  };
+
+  const handleClick = () => {
+    navigate(`/pay`);
+  };
+
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       <div id="mainbox">
         <div id="box1">
           <div>
             <div id="headbox">
-
-            <div className="box1">
-              <LockOutlinedIcon sx={{fontSize: '26px'}} /> 
-              <div className="box1Div1">
-                Secure Checkout
+              <div className="box1">
+                <LockOutlinedIcon sx={{ fontSize: "26px" }} />
+                <div className="box1Div1">Secure Checkout</div>
+                <div className="box1Div2">powered by Borderfree</div>
               </div>
-              <div className="box1Div2">
-                powered by Borderfree
-              </div>
-            </div>
 
               <select id="langcheckout">
                 <option value="EN">English</option>
@@ -188,9 +186,9 @@ export const Checkout = () => {
                   >
                     Email
                   </InputLabel>
-                  
+
                   <OutlinedInput
-                     onChange={handleChange} 
+                    onChange={handleChange}
                     name="email"
                     sx={{ fontSize: "12px" }}
                   />
@@ -690,46 +688,38 @@ export const Checkout = () => {
                   </select>
                 </div>
 
-                
-                  <input
-                    onClick={handleInputData}
-                    id="submitBtn"
-                    type="submit"
-                    value="Continue"
-                  />
-                
+                <input
+                  onClick={handleInputData}
+                  id="submitBtn"
+                  type="submit"
+                  value="Continue"
+                />
               </form>
             </div>
-            
+
             <div id="newtag">
               <div className="payBox">
                 <div className="newcircle2">2</div>
                 <div id="newtitle">Payment</div>
               </div>
-              
             </div>
           </div>
         </div>
-        
+
         <div id="box2">
           <div>
             <div id="rightPromoBox">
-
               <div className="box1">
-                <ShoppingCartOutlinedIcon sx={{fontSize: '50px', paddingLeft: '18px'}} /> 
-                <div className="box1Div1">
-                Your Order
-                </div>
+                <ShoppingCartOutlinedIcon
+                  sx={{ fontSize: "50px", paddingLeft: "18px" }}
+                />
+                <div className="box1Div1">Your Order</div>
               </div>
-              
               {/* <Link to="/payment" style={{ margin: "10px" }}> */}
-              <button
-                // onClick={handleClick}
-                id="submitBtn1">
-                  Continue
-                </button>{" "}
+              <button onClick={handleClick} id="submitBtn1">
+                Continue
+              </button>{" "}
               {/* </Link> */}
-
               <div className="priceSummary">
                 <div className="leftSummaryBox">
                   <div>Items</div>
@@ -738,21 +728,17 @@ export const Checkout = () => {
                   <div>TOTAL</div>
                 </div>
                 <div className="rightSummaryBox">
-                  <div>₹2000</div>
-                  <div>₹3000</div>
-                  <div>₹3000</div>
-                  <div>₹48809</div>
+                  <div>$157</div>
+                  <div>$159</div>
+                  <div>$20</div>
+                  <div>$157</div>
                 </div>
               </div>
               <hr />
-              <p id="Promo"
-                onClick={handlePromo}
-              >
+              <p id="Promo" onClick={handlePromo}>
                 + Promo Code
               </p>
-              <div
-                id={promo}
-              >
+              <div id={promo}>
                 <input
                   // onChange={handlepromoChange}
                   className="inputstyle2"
@@ -761,7 +747,8 @@ export const Checkout = () => {
                 />
                 <button
                   // onClick={handlepromoClick}
-                  className="promobtn">
+                  className="promobtn"
+                >
                   Apply
                 </button>
               </div>
@@ -782,7 +769,7 @@ export const Checkout = () => {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

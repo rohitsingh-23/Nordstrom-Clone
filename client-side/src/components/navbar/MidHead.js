@@ -36,7 +36,7 @@ export const MidHead = () => {
 
           <div className="cartIconBox">
             <p id="cartIndicator">0</p>
-            <a className="cartIcon" href="#">
+            <a className="cartIcon" href="/cart">
               <img
                 style={{
                   width: "31px",

@@ -20,10 +20,16 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />}></Route>
         <Route path="/products" element={<Products />}></Route>
-        <Route path="/productDetails/:id" element={<ProductDescription />}></Route>
-        <Route path="login" element={<SignIn/>}></Route>
-        <Route path="signup" element={<Signup/>}></Route>
+        <Route
+          path="/productDetails/:id"
+          element={<ProductDescription />}
+        ></Route>
+        <Route path="login" element={<SignIn />}></Route>
+        <Route path="signup" element={<Signup />}></Route>
         <Route path="success" element={<OrderConfirm />}></Route>
+        <Route path="/cart" element={<Bag />}></Route>
+        <Route path="/checkout" element={<Checkout />}></Route>
+        <Route path="/pay" element={<Payment />}></Route>
       </Routes>
       {/* <Checkout/> */}
       {/* <Payment/> */}

@@ -17,7 +17,6 @@ import { Navbar } from "../navbar/Navbar";
 import { Footer } from "../footer/Footer";
 
 export const Payment = () => {
-
   // const form = useRef();
 
   // const [mailDet, setMailDet] = useState({
@@ -26,7 +25,7 @@ export const Payment = () => {
   //   otp: "",
   // });
 
-  // useEffect(() => { 
+  // useEffect(() => {
   //   getUserData();
   // }, []);
 
@@ -69,10 +68,8 @@ export const Payment = () => {
   // };
 
   const doneHandle = () => {
-    console.log("done")
-  }
-
-
+    console.log("done");
+  };
 
   // const navigate = useNavigate();
   const [products, setProducts] = useState([]);
@@ -90,13 +87,12 @@ export const Payment = () => {
   };
 
   const handlepromoClick = () => {
-  console.log("handleclick")
+    console.log("handleclick");
   };
-
 
   const handleInputData = (e) => {
     e.preventDefault();
-    console.log("handledata")
+    console.log("handledata");
   };
 
   const [style, setStyle] = useState("exper1");
@@ -138,21 +134,16 @@ export const Payment = () => {
   };
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       <div id="mainbox">
         <div id="box1">
           <div>
             <div id="headbox">
-
-            <div className="box1">
-              <LockOutlinedIcon sx={{fontSize: '26px'}} /> 
-              <div className="box1Div1">
-                Secure Checkout
+              <div className="box1">
+                <LockOutlinedIcon sx={{ fontSize: "26px" }} />
+                <div className="box1Div1">Secure Checkout</div>
+                <div className="box1Div2">powered by Borderfree</div>
               </div>
-              <div className="box1Div2">
-                powered by Borderfree
-              </div>
-            </div>
 
               <select id="langcheckout">
                 <option value="EN">English</option>
@@ -238,18 +229,16 @@ export const Payment = () => {
             </p>
 
             <div id="delboxinfo">
-
               <div className="delBox">
                 <div className="newcircle"> &nbsp;1</div>
                 <div id="newtitle">Delivery</div>
               </div>
 
-              <div id="delAddress">
+              {/* <div id="delAddress">
                 <div>
                   <h4>DELIVERY ADDRESS:</h4>
                   <div id="addressinfo" className="delAddDet">
-                    {/* {address.address} <br /> {address.city} {address.postal_code}{" "}
-                    <br /> {address.country} */}
+                  
                   </div>
                 </div>
 
@@ -262,9 +251,9 @@ export const Payment = () => {
                     <br /> 11-21 Business days
                   </p>
                 </div>
-              </div>
+              </div> */}
             </div>
-            
+
             <div>
               <div className="payBox">
                 <div className="newcircle2">2</div>
@@ -296,7 +285,7 @@ export const Payment = () => {
                         Email
                       </InputLabel>
                       <OutlinedInput
-                       // onChange={handleChange}
+                        // onChange={handleChange}
                         name="email"
                         sx={{ fontSize: "12px" }}
                       />
@@ -322,7 +311,7 @@ export const Payment = () => {
                           First Name
                         </InputLabel>
                         <OutlinedInput
-                         // onChange={handleChange}
+                          // onChange={handleChange}
                           name="first_name"
                           label="First Name"
                           sx={{ fontSize: "12px" }}
@@ -347,7 +336,7 @@ export const Payment = () => {
                           Last Name
                         </InputLabel>
                         <OutlinedInput
-                         // onChange={handleChange}
+                          // onChange={handleChange}
                           name="last_name"
                           label="Last Name"
                           sx={{ fontSize: "12px" }}
@@ -370,7 +359,7 @@ export const Payment = () => {
                         Address
                       </InputLabel>
                       <OutlinedInput
-                       // onChange={handleChange}
+                        // onChange={handleChange}
                         name="address"
                         label="Address"
                         sx={{ fontSize: "12px" }}
@@ -420,7 +409,7 @@ export const Payment = () => {
                           Postal Code
                         </InputLabel>
                         <OutlinedInput
-                         // onChange={handleChange}
+                          // onChange={handleChange}
                           name="postal_code"
                           label="Postal Code"
                           sx={{ fontSize: "12px" }}
@@ -447,7 +436,7 @@ export const Payment = () => {
                           City
                         </InputLabel>
                         <OutlinedInput
-                         // onChange={handleChange}
+                          // onChange={handleChange}
                           name="city"
                           label="City"
                           sx={{ fontSize: "12px" }}
@@ -497,7 +486,7 @@ export const Payment = () => {
                           Phone
                         </InputLabel>
                         <OutlinedInput
-                         // onChange={handleChange}
+                          // onChange={handleChange}
                           name="phone"
                           label="Phone"
                           sx={{ fontSize: "12px" }}
@@ -505,7 +494,7 @@ export const Payment = () => {
                       </FormControl>
 
                       <select
-                       // onChange={handleChange}
+                        // onChange={handleChange}
                         className="inputstyle1"
                         id="country"
                         name="country"
@@ -824,7 +813,7 @@ export const Payment = () => {
                     </a>
                   </form>
                 </div>
-                
+
                 <div className="allCardDet">
                   <input
                     type="radio"
@@ -833,7 +822,7 @@ export const Payment = () => {
                     value="HTML"
                     checked={radio}
                   />
-                  <label for="html" className="creditFlex" >
+                  <label for="html" className="creditFlex">
                     Credit or Debit Card{" "}
                     <img
                       id="visa"
@@ -864,7 +853,6 @@ export const Payment = () => {
                       />
                     </div>
                   </div>
-                 
                 </div>
                 <div>
                   <input
@@ -883,8 +871,8 @@ export const Payment = () => {
               </div>
             </div>
             <div>
-              <a href="/OTP" style={{ margin: "10px" }}>
-                <button id="submitBtn"  Click Here>
+              <a href="/success" style={{ margin: "10px" }}>
+                <button id="submitBtn" Click Here>
                   Place Order
                 </button>
               </a>
@@ -899,12 +887,11 @@ export const Payment = () => {
         <div id="box2">
           <div>
             <div id="rightPromoBox">
-            
               <div className="box1">
-                <ShoppingCartOutlinedIcon sx={{fontSize: '50px', paddingLeft: '18px'}} /> 
-                <div className="box1Div1">
-                Your Order
-                </div>
+                <ShoppingCartOutlinedIcon
+                  sx={{ fontSize: "50px", paddingLeft: "18px" }}
+                />
+                <div className="box1Div1">Your Order</div>
               </div>
 
               <a href="/payment" style={{ margin: "10px" }}>
@@ -922,9 +909,9 @@ export const Payment = () => {
                 </div>
                 <div className="rightSummaryBox">
                   <div>₹totalprice</div>
-                  <div>₹2000</div>
-                  <div>₹2000</div>
-                  <div>₹45000</div>
+                  <div>$157</div>
+                  <div>$159</div>
+                  <div>$157</div>
                 </div>
               </div>
 
@@ -960,7 +947,7 @@ export const Payment = () => {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

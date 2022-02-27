@@ -18,7 +18,6 @@ export const SignIn = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUser({
@@ -33,7 +32,7 @@ export const SignIn = () => {
       .then((res) => {
         console.log(res.data);
         dispatch(userData(res.data));
-        navigate(`/`)
+        navigate(`/`);
       })
       .catch((err) => {
         console.log(err);
@@ -108,7 +107,7 @@ export const SignIn = () => {
             </p>
             <button onClick={handleCheck}>Next</button>
             <button>
-              <a href="http://localhost:8080/auth/google">
+              <a href="http://localhost:4500/auth/google">
                 <FcGoogle style={{ fontSize: "15px" }} />
               </a>
             </button>

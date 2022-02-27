@@ -3,12 +3,28 @@ import "./Bag.css";
 import axios from "axios";
 import { Navbar } from "../navbar/Navbar";
 import { Footer } from "../footer/Footer";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export const Bag = () => {
+  const navigate = useNavigate();
+  var userid = useSelector((store) => store.user._id);
+  console.log(userid);
+  const getUserProduct = () => {
+    axios.get(`http://localhost:4500/cart/${userid}`).then((res) => {
+      console.log(res.data);
+      console.log("Hello");
+    });
+  };
+  getUserProduct();
   // const [cart, setCart] = useState({});
   // const fetchCart = () => {
   //   axios.get("/").then((res) => {});
   // };
+
+  const gotoCheckout = () => {
+    navigate(`/checkout`);
+  };
 
   return (
     <div>
@@ -105,7 +121,7 @@ export const Bag = () => {
               </div>
               <hr />
               <p>or 4 interest-free payments of $43.88 ⓘ</p>
-              <button>Check Out</button>
+              <button onClick={gotoCheckout}>Check Out</button>
             </div>
           </div>
         </div>

@@ -82,8 +82,8 @@
   grid-template-columns: repeat(4, 24%);
   justify-content: space-between;
 }
-.card{
-    padding: 10px;
+.card {
+  padding: 10px;
 }
 .card .brand {
   font-weight: bold;
@@ -92,7 +92,6 @@
   font-weight: 600;
 }
 .sale-amount {
-  margin-bottom: -10px;
   color: #dc4047;
   font-weight: bold;
 }
@@ -100,10 +99,9 @@
   display: flex;
 }
 
-.proImg{
-      position: relative;
+.proImg {
+  position: relative;
 }
-
 
 .img1 {
   position: absolute;
@@ -111,10 +109,10 @@
   left: 0;
   z-index: 2;
 }
-.img1:hover  {
+.img1:hover {
   display: none;
 }
-.collapseBox{
+.collapseBox {
   width: 100%;
   border: 1px solid #e4dede;
   padding: 6px;
