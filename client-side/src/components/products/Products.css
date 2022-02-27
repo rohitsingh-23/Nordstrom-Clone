@@ -1,6 +1,7 @@
 .container {
   color: #393939;
   padding: 0 20px;
+  margin-top: 30px;
 }
 .path {
   color: #393939;
@@ -112,4 +113,10 @@
 }
 .img1:hover  {
   display: none;
+}
+.collapseBox{
+  width: 100%;
+  border: 1px solid #e4dede;
+  padding: 6px;
+  border-radius: 3px;
 }

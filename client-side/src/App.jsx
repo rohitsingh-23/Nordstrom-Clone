@@ -15,11 +15,13 @@ function App() {
   return (
     <>
       {/* <Navbar />
-    // <LandingPage />
     //   <Footer/> */}
       <Routes>
-        <Route path="/" element={<Products />}></Route>
+        <Route path="/" element={<LandingPage />}></Route>
+        <Route path="/products" element={<Products />}></Route>
         <Route path="/productDetails/:id" element={<ProductDescription />}></Route>
+        <Route path="login" element={<SignIn/>}></Route>
+        <Route path="signup" element={<Signup/>}></Route>
       </Routes>
       {/* <Checkout/> */}
       {/* <Payment/> */}

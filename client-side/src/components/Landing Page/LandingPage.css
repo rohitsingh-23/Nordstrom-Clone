@@ -1,3 +1,9 @@
+.LandingPage{
+  margin: auto;
+  text-align: center;
+}
+
+
 .discount {
   /* margin: auto; */
   /* width: 80%; */
@@ -134,4 +140,10 @@
     left: 13%;
     top: 53%;
     width:35%
+}
+.TopNav{
+  margin: auto;
+  text-align: center;
+  width:auto;
+  margin-top: 2%;
 }

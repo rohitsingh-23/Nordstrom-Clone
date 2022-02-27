@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import "./Navbar.css";
 import "./PopOver.css";
 import { useSelector, useDispatch } from "react-redux";
+import {Link} from "react-router-dom"
 
 export default function BasicPopover() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -73,9 +74,9 @@ export default function BasicPopover() {
         <div className="signInOptionsCont">
           <div>
             <div className="signInOptionsBox">
-              <a href="#">
+              <Link to="/login">
                 <div className="signInBtn">Sign In | Create Account</div>
-              </a>
+              </Link>
               <div className="optDum">Purchases</div>
               <div className="optDum">Wishlist</div>
               <div className="optDum">Shipping address</div>
