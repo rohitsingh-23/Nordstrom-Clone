@@ -20,6 +20,7 @@ const routes = require("./routes/routes");
 app.use("/users", routes);
 
 const Product = require("./models/Products.model");
+const Cart = require("./models/Cart.model")
 app.use(express.json());
 // const userController = require("./controller/user.controller");
 // const Product = require("./model/products.model");
@@ -51,6 +52,27 @@ app.post("/data", async (req, res) => {
 app.get("/product/:id", async(req, res) => {
   try {
     const item = await Product.find({ _id: req.params.id }).lean().exec();
+  return res.json({ res: item });
+  } catch (err) {
+    return res.status(400).json(err.message);
+  }
+});
+
+app.post("/cart", async (req, res) => {
+  try {
+    const carts = new Cart(req.body);
+    const cartData = await carts.save();
+
+    res.status(201).send(cartData);
+  } catch (e) {
+    res.status(400).send(e);
+  }
+});
+
+
+app.get("/cart/:id", async(req, res) => {
+  try {
+    const item = await Cart.find({ userID: req.params.id }).lean().exec();
   return res.json({ res: item });
   } catch (err) {
     return res.status(400).json(err.message);

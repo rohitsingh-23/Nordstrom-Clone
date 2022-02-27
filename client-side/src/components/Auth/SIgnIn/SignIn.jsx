@@ -45,7 +45,7 @@ export const SignIn = () => {
       .post("http://localhost:4500/users/check", user)
       .then((res) => {
         if (res.data.message === "no") {
-          navigate(`/register`);
+          navigate(`/signup`);
         }
         console.log(res.data);
         setCheck(res.data.message);

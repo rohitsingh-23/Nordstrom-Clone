@@ -29,7 +29,7 @@ export const Signup = () => {
       .post("http://localhost:4500/users/register", user)
       .then((res) => {
         console.log(res.data);
-        navigate(`/signin`);
+        navigate(`/login`);
       })
       .catch((err) => {
         console.log(err);

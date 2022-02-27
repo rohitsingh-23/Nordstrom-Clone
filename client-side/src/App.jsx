@@ -10,6 +10,7 @@ import { Signup } from "./components/Auth/Signup/Signup";
 import { Bag } from "./components/ShoppingBag/Bag";
 import { Payment } from "./components/Checkoutandpayment/Payment";
 import ProductDescription from "./components/Products Description/ProductDescription";
+import { OrderConfirm } from "./components/OrderConfirm/Acknowldegment";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/productDetails/:id" element={<ProductDescription />}></Route>
         <Route path="login" element={<SignIn/>}></Route>
         <Route path="signup" element={<Signup/>}></Route>
+        <Route path="success" element={<OrderConfirm />}></Route>
       </Routes>
       {/* <Checkout/> */}
       {/* <Payment/> */}

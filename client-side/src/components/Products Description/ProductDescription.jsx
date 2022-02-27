@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react'
 import {useParams} from 'react-router-dom'
 import './ProductDetail.css'
 import axios from 'axios';
+import { useSelector, useDispatch } from "react-redux";
 function ProductDescription() {
 
+    var userid = useSelector((store) => store.user._id);
+    console.log(userid)
     const [productData, setProductData] = useState([]);
 
     const id = useParams()
@@ -15,6 +18,15 @@ function ProductDescription() {
     });
     }
     getData();
+
+    var addToCart = (pID) => {
+        var obj ={
+            userID:userid,
+            productID:pID
+        }
+        axios.post("http://localhost:4500/cart", obj).then(res=>{console.log(res)});
+    }
+
   return (
     
     <div>
@@ -72,7 +84,9 @@ function ProductDescription() {
                    </select>
                    </div>
                    <div>
-                   <button className="btnDiv">Add to Bag</button>
+                   <button className="btnDiv" onClick={()=>{
+                        addToCart(e._id)
+                   }}>Add to Bag</button>
                    </div>
                </div>
 
