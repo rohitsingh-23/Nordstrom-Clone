@@ -9,7 +9,7 @@ import { SignIn } from "./components/Auth/SIgnIn/SignIn";
 import { Signup } from "./components/Auth/Signup/Signup";
 import { Bag } from "./components/ShoppingBag/Bag";
 import { Payment } from "./components/Checkoutandpayment/Payment";
-// import { ProductDetail } from "./components/productDetails/ProductDetail";
+import ProductDescription from "./components/Products Description/ProductDescription";
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
     //   <Footer/> */}
       <Routes>
         <Route path="/" element={<Products />}></Route>
-        {/* <Route path="/productDetails" element={<ProductDetail/>}></Route> */}
+        <Route path="/productDetails/:id" element={<ProductDescription />}></Route>
       </Routes>
       {/* <Checkout/> */}
       {/* <Payment/> */}

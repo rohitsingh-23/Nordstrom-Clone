@@ -37,9 +37,9 @@ function Products() {
         setProductsData(data.res)
     });
   
-  // const handleCard = (e) => {
-  //   Navigate()
-  // }
+  const handleCard = (id) => {
+    Navigate(`/productDetails/${id}`);
+  }
 
   return (
     <div className='container'>
