@@ -8,13 +8,14 @@
 
 #visa {
   height: 20px;
+  width: 9%;
 }
 
-#deladrs {
+#delAddress {
   display: flex;
   border-bottom: 1px solid rgb(230, 224, 224);
 }
-#delmtd {
+#delMethod {
   margin-left: 50%;
 }
 .carddetails {
@@ -179,6 +180,10 @@
   margin-bottom: 20px;
   font-size: 12px;
   cursor: pointer;
+}
+
+.creditFlex {
+  display: flex;
 }
 
 #submitBtn:hover,

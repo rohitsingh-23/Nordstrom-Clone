@@ -3,6 +3,7 @@ import { useState } from 'react';
 import './Products.css'
 import { Icon } from '@iconify/react';
 import Collapsible from 'react-collapsible';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 function shuffle(array) {
    
@@ -27,7 +28,7 @@ function shuffle(array) {
 function Products() {
     const [shuffleArray, setShuffleArray] = useState([]);
     const [productsData, setProductsData] = useState([]);
-
+    const Navigate = useNavigate()
     
     var arr = new Array(4).fill(-1);
     fetch("http://localhost:4500/data").then(res=>res.json()).then(data=>{
@@ -35,6 +36,10 @@ function Products() {
         // shuffle(data.res);
         setProductsData(data.res)
     });
+  
+  // const handleCard = (e) => {
+  //   Navigate()
+  // }
 
   return (
     <div className='container'>
@@ -92,7 +97,9 @@ function Products() {
                     var img = el.images[0];
                     var img2 = el.images[1];
                     return (
-                      <div className="card">
+                      <div onClick={() => {
+                        handleCard(el._id)
+                      }} className="card">
                         <div className="proImg">
                           <img className="img1" src={img} />
                           <img className="img2" src={img2} />

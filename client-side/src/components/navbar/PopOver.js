@@ -3,9 +3,21 @@ import Popover from "@mui/material/Popover";
 import Button from "@mui/material/Button";
 import "./Navbar.css";
 import "./PopOver.css";
+import { useSelector, useDispatch } from "react-redux";
 
 export default function BasicPopover() {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [user, setUser] = React.useState("Sign In");
+
+  const username = useSelector((store) => store.user.first_name);
+  // console.log("username", username)
+  // setUser(username)
+  React.useEffect(() => {
+    if (username) {
+      setUser(username);
+      console.log("username", username);
+    }
+  }, [user, username]);
 
   const handleClick = (event) => {
     event.preventDefault();
@@ -44,7 +56,7 @@ export default function BasicPopover() {
             }}
             href=""
           >
-            Sign In
+            {user}
           </a>
         </div>
       </Button>
