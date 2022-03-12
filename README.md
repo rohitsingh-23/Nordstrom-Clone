@@ -33,7 +33,7 @@ This is a team project, built by us in the Construct Week - Unit 5 at Masai Scho
 - node js
 - Express js
 - Advance JavaScript (ES6)
-- MongoDb
+- MongoDB
 - npm Packages
 - Material UI
 
