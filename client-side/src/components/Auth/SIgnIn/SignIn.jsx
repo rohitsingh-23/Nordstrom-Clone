@@ -5,7 +5,7 @@ import "./SignIn.css";
 import { FcGoogle } from "react-icons/fc";
 import { Navbar } from "../../navbar/Navbar";
 import { Footer } from "../../footer/Footer";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { userData } from "../../../redux/action";
 
 export const SignIn = () => {

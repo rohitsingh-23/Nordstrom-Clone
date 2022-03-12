@@ -61,185 +61,185 @@ export const MenNav = () => {
           <div>
             <div className="catHead">Clothing</div>
             <div className="catBox">
-              <a href="#" className="categories">
+              <Link to="./products" className="categories">
                 Activewear
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Blazers and sports coats
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Coats and Jackets
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Dress shirts
-              </a>
+              </Link>
               <Link to="./products" className="categories">
                 Jeans
               </Link>
-              <a href="#" className="categories">
+              <Link to="./products" className="categories">
                 Joggers and sweatpants
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Lounges, Pajamas and Robes
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Pants
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Polo Shirts
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Shirts
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Socks
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Suits & Separates
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Sweaters
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Sweatshirts & hoodies
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 T-shirts
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Underwares & Boxers
-              </a>
+              </Link>
             </div>
           </div>
 
           <div>
             <div className="catHead">Shoes</div>
             <div className="catBox">
-              <a href="#" className="categories">
+              <Link to="./products" className="categories">
                 Boots
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Comfort
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Dress shoes
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Dress shirts
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Loafers and Slip-ons
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Oxford & Derbys
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Running Shoes
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Sandals and Flip-flops
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Shoes cares and Accessories
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Slippers
-              </a>
+              </Link>
             </div>
           </div>
 
           <div>
             <div className="catHead">Accessories</div>
             <div className="catBox">
-              <a href="#" className="categories">
+              <Link to="./products" className="categories">
                 Bags & Bagpacks
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Belts
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Face masks
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Gloves
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Hats
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Headphones
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Jewelry
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Phonecases
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Scarves
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Sunglasses & eyewears
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Ties & pocket Squares
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Wallets
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Watches
-              </a>
+              </Link>
             </div>
           </div>
 
           <div>
             <div className="catHead">Designers</div>
             <div className="catBox">
-              <a href="#" className="categories">
+              <Link to="./products" className="categories">
                 Designer Clothing
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Designer shoes
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Designer Accessories
-              </a>
+              </Link>
             </div>
 
             <div className="catHead">Big & Tall</div>
             <div className="catBox">
-              <a href="#" className="categories">
+              <Link to="./products" className="categories">
                 Clothing
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Jeans
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Pants
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Shirts
-              </a>
+              </Link>
             </div>
 
             <div className="catHead">Grooming & Cologne</div>
             <div className="catBox">
-              <a href="#" className="categories">
+              <Link to="./products" className="categories">
                 Body care & Deodrant
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Cologne
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Dopp Kits & Toiletry
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Gifts and Sets
-              </a>
-              <a href="#" className="categories">
+              </Link>
+              <Link to="./products" className="categories">
                 Hair Products
-              </a>
+              </Link>
             </div>
           </div>
 

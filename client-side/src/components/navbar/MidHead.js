@@ -4,15 +4,18 @@ import { TextField, IconButton } from "@mui/material";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import CartIcon from "../../assets/navbarImages/cartIcon.png";
 import SignInPopOver from "./PopOver";
+import { Link } from "react-router-dom";
 
 export const MidHead = () => {
   return (
     <>
       <div className="midHead">
-        <img
-          className="midLogo"
-          src="https://upload.wikimedia.org/wikipedia/commons/7/72/Nordstrom_Logo_2019.png"
-        />
+        <Link to="/">
+          <img
+            className="midLogo"
+            src="https://upload.wikimedia.org/wikipedia/commons/7/72/Nordstrom_Logo_2019.png"
+          />
+        </Link>
         <div className="rightBox">
           <div>
             <TextField
